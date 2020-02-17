@@ -1,0 +1,35 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+<script src="./js/sun-light.js"<>/script>
+<link rel="slylesheet" type="text/css" href="./css/style.css" />
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='sourceType: webcam; trackingMethod:best; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+	shadow=autoUpdate:true; type:pcf;">
+      <a-assets>
+		<a-asset-item id="projekt1-obj" src="./obj/3d-projekt1.obj"></a-asset-item>
+	 </a-assets>
+	<a-marker type="barcode" value="0">
+			<a-entity light="type:ambient; color: #BBB;intensity: 0.5"></a-entity>
+
+		a-entity id= "sunroot">
+		<a-entity id="sunlight" sunlight light="type: directional;
+		shadowCameraLeft: -15;
+		shadowCameraRight: 15;
+		shadowCameraTop: 15;
+		shadowCameraBottom: -15;
+		color:#FFF; intensity:0.6;
+		castShadow:true;
+		shadowMapHeight:1024;
+		shadowMapWidth:1024;">
+		</a-entity>
+	</a-entity>
+
+		<a-obj-projekt1 src="#projekt1-obj" scale="0.03 0.03 0.03" shadow="recieive: true"><a-obj-projekt1>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+<script src="./js/sun-light-helper.js"<>/script>
+  </body>
+</html>
